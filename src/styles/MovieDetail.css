@@ -1,0 +1,455 @@
+.movie-detail-page {
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Movie Header Section */
+.movie-header {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  padding: 60px 0;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(231, 76, 60, 0.3));
+  z-index: 1;
+}
+
+.movie-header .container {
+  position: relative;
+  z-index: 2;
+}
+
+.movie-poster {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.movie-poster img {
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.movie-poster img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  animation: fadeIn 0.6s ease-out 0.2s backwards;
+}
+
+.badges-container .badge {
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.badge-trending {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%) !important;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.movie-meta {
+  animation: fadeIn 0.6s ease-out 0.3s backwards;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.movie-meta p {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.movie-meta strong {
+  font-weight: 700;
+  color: #ffd700;
+}
+
+.additional-info {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 0.6s ease-out 0.4s backwards;
+}
+
+.additional-info p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Theater Selection Section */
+.theaters-section {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theaters-section h2 {
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.theaters-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #e74c3c, #f39c12);
+  border-radius: 2px;
+}
+
+.theaters-accordion {
+  border: 2px solid #e74c3c;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.theater-item {
+  border-bottom: 2px solid #e9ecef;
+  animation: fadeIn 0.5s ease-out backwards;
+}
+
+.theater-item:last-child {
+  border-bottom: none;
+}
+
+.theater-item:nth-child(1) { animation-delay: 0.1s; }
+.theater-item:nth-child(2) { animation-delay: 0.15s; }
+.theater-item:nth-child(3) { animation-delay: 0.2s; }
+
+.theater-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%) !important;
+  border: none !important;
+  padding: 20px !important;
+  font-weight: 600 !important;
+  color: #2c3e50 !important;
+}
+
+.theater-header:hover {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%) !important;
+}
+
+.theater-header:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23e74c3c' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+.theater-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.theater-info h5 {
+  color: #e74c3c;
+  font-weight: 700;
+  margin: 0;
+}
+
+.theater-details {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.theater-body {
+  background: white;
+  border-top: 2px solid #e9ecef;
+}
+
+/* Show Cards */
+.show-card {
+  border: 1px solid #dee2e6;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideUp 0.5s ease-out backwards;
+}
+
+.show-card:nth-child(1) { animation-delay: 0.2s; }
+.show-card:nth-child(2) { animation-delay: 0.25s; }
+.show-card:nth-child(3) { animation-delay: 0.3s; }
+
+.show-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(231, 76, 60, 0.2) !important;
+  border-color: #e74c3c;
+}
+
+.show-card .show-time {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e74c3c;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+.show-card .show-details {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid #e74c3c;
+}
+
+.show-card .show-details p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+.show-card .show-details strong {
+  color: #e74c3c;
+}
+
+/* Buttons */
+.btn-book-seats,
+.btn-view-shows {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-book-seats:hover,
+.btn-view-shows:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+}
+
+.btn-book-seats:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-book-seats:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Loader */
+.loader-spinner {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #e74c3c;
+  animation: pulse 1.5s infinite;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 992px) {
+  .movie-header {
+    padding: 40px 0;
+  }
+
+  .movie-header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .theater-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .show-card .show-time {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-header {
+    padding: 30px 0;
+    background-attachment: scroll !important;
+  }
+
+  .movie-header .container h1 {
+    font-size: 2rem;
+  }
+
+  .movie-meta {
+    font-size: 1rem;
+  }
+
+  .movie-meta p {
+    gap: 8px;
+  }
+
+  .badges-container {
+    gap: 8px;
+  }
+
+  .badges-container .badge {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  .additional-info {
+    padding: 15px;
+  }
+
+  .additional-info p {
+    font-size: 0.9rem;
+  }
+
+  .theater-details {
+    font-size: 0.85rem;
+  }
+
+  .show-card .show-time {
+    font-size: 1.3rem;
+  }
+
+  .show-card .show-details p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .movie-header {
+    padding: 20px 0;
+  }
+
+  .movie-header .container h1 {
+    font-size: 1.5rem;
+  }
+
+  .movie-meta {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .movie-meta p {
+    margin-bottom: 8px;
+  }
+
+  .badges-container {
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+
+  .badges-container .badge {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+
+  .additional-info {
+    padding: 12px;
+    margin-top: 15px;
+  }
+
+  .additional-info p {
+    font-size: 0.85rem;
+    margin: 6px 0;
+  }
+
+  .theater-header {
+    padding: 15px !important;
+  }
+
+  .theater-info h5 {
+    font-size: 0.95rem;
+  }
+
+  .theater-details {
+    font-size: 0.75rem;
+  }
+
+  .theater-body {
+    padding: 12px;
+  }
+
+  .show-card {
+    margin-bottom: 15px;
+  }
+
+  .show-card .show-time {
+    font-size: 1.1rem;
+  }
+
+  .show-card .show-details p {
+    font-size: 0.85rem;
+  }
+
+  .btn-book-seats,
+  .btn-view-shows {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  h6 {
+    font-size: 0.9rem;
+  }
+}
